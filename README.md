@@ -1,1 +1,5 @@
-# jenkins-docker-k8s-aws
+# Start jenkins
+
+```bash
+docker-compose up -d --build
+```

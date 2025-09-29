@@ -1,0 +1,23 @@
+services:
+  junkins:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: junkins
+    ports:
+      - "8080:8080"
+      - "50000:50000"
+    volumes:
+      - junkins_data:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+    restart: unless-stopped
+    networks:
+      - junkins
+
+networks:
+  junkins:
+    driver: bridge
+
+volumes:
+    junkins_data:
+        driver: local
